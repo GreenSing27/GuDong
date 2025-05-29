@@ -1,0 +1,50 @@
+<!-- pages/login/login.wxml -->
+<view class="login-container">
+  <!-- 未登录状态 -->
+  <block wx:if="{{!hasUserInfo}}">
+    <view class="login-header">
+      <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+      <text class="title">欢迎使用小程序</text>
+      <text class="subtitle">请先登录以体验完整功能</text>
+    </view>
+
+    <view class="login-btn-container">
+      <button 
+        wx:if="{{canIUseGetUserProfile}}"
+        class="login-btn"
+        bindtap="getUserProfile"
+        open-type="getUserInfo"
+      >
+        <image class="icon" src="/images/wechat-icon.png"></image>
+        <text>微信一键登录</text>
+      </button>
+      <view wx:else class="login-tip">
+        请升级微信版本以使用登录功能
+      </view>
+    </view>
+
+    <view class="agreement">
+      <checkbox checked="{{isAgree}}" bindtap="toggleAgreement" />
+      <text>已阅读并同意</text>
+      <navigator url="/pages/agreement/agreement" class="link">《用户协议》</navigator>
+      <text>和</text>
+      <navigator url="/pages/privacy/privacy" class="link">《隐私政策》</navigator>
+    </view>
+  </block>
+
+  <!-- 已登录状态 -->
+  <block wx:else>
+    <view class="user-card">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <text class="nickname">{{userInfo.nickName}}</text>
+        <text class="welcome">欢迎回来！</text>
+      </view>
+    </view>
+
+    <view class="action-buttons">
+      <button class="btn" bindtap="navigateToHome">进入首页</button>
+      <button class="btn btn-logout" bindtap="logout">切换账号</button>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/assets/images/default-avatar.png'}}" bindtap="changeAvatar"/>
+      <view class="user-detail">
+        <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
+        <text class="user-id">ID: {{userId}}</text>
+      </view>
+    </view>
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-value">{{totalDays}}</text>
+        <text class="stat-label">累计天数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{totalWater}}L</text>
+        <text class="stat-label">累计饮水量</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{achievementCount}}</text>
+        <text class="stat-label">获得成就</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置列表 -->
+  <view class="settings-list">
+    <view class="settings-group">
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/water-goal">
+        <text class="item-label">目标饮水量</text>
+        <view class="item-right">
+          <text class="item-value">{{waterGoal}}ml</text>
+          <text class="arrow">></text>
+        </view>
+      </view>
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/reminder">
+        <text class="item-label">提醒设置</text>
+        <view class="item-right">
+          <switch checked="{{reminderEnabled}}" bindchange="toggleReminder" color="#4A90E2"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="settings-group">
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/achievements">
+        <text class="item-label">我的成就</text>
+        <view class="item-right">
+          <text class="arrow">></text>
+        </view>
+      </view>
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/statistics">
+        <text class="item-label">饮水统计</text>
+        <view class="item-right">
+          <text class="arrow">></text>
+        </view>
+      </view>
+    </view>
+
+    <view class="settings-group">
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/about">
+        <text class="item-label">关于我们</text>
+        <view class="item-right">
+          <text class="arrow">></text>
+        </view>
+      </view>
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/feedback">
+        <text class="item-label">意见反馈</text>
+        <view class="item-right">
+          <text class="arrow">></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="logout-section">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view> 

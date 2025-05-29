@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- 饮品推荐卡片列表 -->
+  <view class="drink-section">
+    <view class="section-title">精选饮品推荐</view>
+    <scroll-view scroll-x class="drink-scroll" enable-flex>
+      <view class="drink-card" wx:for="{{drinkList}}" wx:key="id" bindtap="showDrinkDetail" data-id="{{item.id}}">
+        <image class="drink-image" src="{{item.image}}" mode="aspectFill"/>
+        <view class="drink-info">
+          <text class="drink-name">{{item.name}}</text>
+          <text class="drink-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 知识科普专区 -->
+  <view class="article-section">
+    <view class="section-title">咕咚咕咚小课堂</view>
+    <view class="article-list">
+      <view class="article-card" wx:for="{{articleList}}" wx:key="id" bindtap="showArticleDetail" data-id="{{item.id}}">
+        <image class="article-image" src="{{item.image}}" mode="aspectFill"/>
+        <view class="article-info">
+          <text class="article-title">{{item.title}}</text>
+          <text class="article-desc">{{item.description}}</text>
+          <view class="article-meta">
+            <text class="article-date">{{item.date}}</text>
+            <text class="article-category">{{item.category}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 饮品详情弹窗 -->
+  <view class="drink-detail-modal" wx:if="{{showDrinkDetail}}">
+    <view class="modal-mask" bindtap="hideDrinkDetail"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">{{currentDrink.name}}</text>
+        <text class="modal-close" bindtap="hideDrinkDetail">×</text>
+      </view>
+      <scroll-view scroll-y class="modal-body">
+        <image class="detail-image" src="{{currentDrink.image}}" mode="aspectFill"/>
+        <view class="detail-section">
+          <view class="detail-title">功效</view>
+          <text class="detail-text">{{currentDrink.benefits}}</text>
+        </view>
+        <view class="detail-section">
+          <view class="detail-title">配方</view>
+          <view class="ingredient-list">
+            <view class="ingredient-item" wx:for="{{currentDrink.ingredients}}" wx:key="name">
+              <text class="ingredient-name">{{item.name}}</text>
+              <text class="ingredient-amount">{{item.amount}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="detail-section">
+          <view class="detail-title">制作步骤</view>
+          <view class="step-list">
+            <view class="step-item" wx:for="{{currentDrink.steps}}" wx:key="index">
+              <text class="step-number">{{index + 1}}</text>
+              <text class="step-text">{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view> 

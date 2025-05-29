@@ -1,0 +1,162 @@
+.container {
+  padding: 30rpx;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+}
+
+/* 表单部分 */
+.form-section {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.form-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+input {
+  width: 100%;
+  height: 80rpx;
+  background: #f5f6fa;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+
+.picker {
+  width: 100%;
+  height: 80rpx;
+  background: #f5f6fa;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+/* 结果部分 */
+.result-section {
+  margin-top: 40rpx;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.result-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.water-amount {
+  font-size: 72rpx;
+  color: #4A90E2;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.result-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.schedule-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.schedule-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.schedule-list {
+  border-top: 1rpx solid #eee;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.time {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.amount {
+  font-size: 28rpx;
+  color: #4A90E2;
+}
+
+/* 按钮部分 */
+.calculate-section {
+  margin-top: 40rpx;
+}
+
+.calculate-btn {
+  width: 100%;
+  height: 88rpx;
+  background: #4A90E2;
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
+
+.calculate-btn[disabled] {
+  background: #ccc;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.apply-btn, .share-btn {
+  width: 48%;
+  height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
+
+.apply-btn {
+  background: #4A90E2;
+  color: #fff;
+}
+
+.share-btn {
+  background: #fff;
+  color: #4A90E2;
+  border: 2rpx solid #4A90E2;
+} 

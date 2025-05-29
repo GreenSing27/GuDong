@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- 个人信息输入表单 -->
+  <view class="form-section">
+    <view class="form-title">个人信息</view>
+    <view class="form-item">
+      <text class="label">体重(kg)</text>
+      <input type="digit" value="{{weight}}" bindinput="onWeightInput" placeholder="请输入体重"/>
+    </view>
+    <view class="form-item">
+      <text class="label">活动量</text>
+      <picker mode="selector" range="{{activityLevels}}" value="{{activityIndex}}" bindchange="onActivityChange">
+        <view class="picker">
+          {{activityLevels[activityIndex]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 推荐结果 -->
+  <view class="result-section" wx:if="{{showResult}}">
+    <view class="result-card">
+      <view class="result-title">今日推荐饮水量</view>
+      <view class="water-amount">{{recommendedWater}}ml</view>
+      <view class="result-desc">根据您的体重和活动量计算得出</view>
+    </view>
+
+    <view class="schedule-card">
+      <view class="schedule-title">推荐饮水时间表</view>
+      <view class="schedule-list">
+        <view class="schedule-item" wx:for="{{scheduleList}}" wx:key="index">
+          <text class="time">{{item.time}}</text>
+          <text class="amount">{{item.amount}}ml</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-buttons">
+      <button class="apply-btn" bindtap="applyToHome">应用到首页</button>
+      <button class="share-btn" bindtap="shareResult">分享给好友</button>
+    </view>
+  </view>
+
+  <!-- 计算按钮 -->
+  <view class="calculate-section" wx:if="{{!showResult}}">
+    <button class="calculate-btn" bindtap="calculateRecommendation" disabled="{{!weight}}">
+      开始计算
+    </button>
+  </view>
+</view> 

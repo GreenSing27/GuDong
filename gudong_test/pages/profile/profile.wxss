@@ -1,0 +1,130 @@
+.container {
+  padding: 30rpx;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.user-id {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1rpx solid #eee;
+  padding-top: 30rpx;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 36rpx;
+  color: #4A90E2;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 设置列表 */
+.settings-list {
+  margin-bottom: 30rpx;
+}
+
+.settings-group {
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.item-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+}
+
+.item-value {
+  font-size: 28rpx;
+  color: #999;
+  margin-right: 10rpx;
+}
+
+.arrow {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 退出登录按钮 */
+.logout-section {
+  padding: 30rpx;
+}
+
+.logout-btn {
+  width: 100%;
+  height: 88rpx;
+  background: #fff;
+  color: #ff4d4f;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  border: none;
+} 
