@@ -14,16 +14,25 @@
         </view>
       </picker>
     </view>
+    <view class="form-item">
+      <text class="label">其他备注</text>
+      <input type="idcard" value="{{descrip}}" bindinput="onDescrip" placeholder="请输入备注"/>
+    </view>
   </view>
+  
+  <!-- 大模型推荐结果 -->
+  <button type="primary" bindtap="getWaterAdvice">获取饮水建议</button>
+  <view wx:if="{{loading}}">正在获取建议...</view>
+  <view wx:if="{{loading}}">体重{{weight}}kg，活动水平为{{activityText}}，其他信息：{{descrip}}</view>
+  <view wx:if="{{advice}}" class="advice">{{advice}}</view>
 
-  <!-- 推荐结果 -->
-  <view class="result-section" wx:if="{{showResult}}">
+  <!-- 计算结果 -->
+  <!-- <view class="result-section" wx:if="{{showResult}}">
     <view class="result-card">
       <view class="result-title">今日推荐饮水量</view>
       <view class="water-amount">{{recommendedWater}}ml</view>
       <view class="result-desc">根据您的体重和活动量计算得出</view>
     </view>
-
     <view class="schedule-card">
       <view class="schedule-title">推荐饮水时间表</view>
       <view class="schedule-list">
@@ -33,17 +42,18 @@
         </view>
       </view>
     </view>
-
     <view class="action-buttons">
       <button class="apply-btn" bindtap="applyToHome">应用到首页</button>
       <button class="share-btn" bindtap="shareResult">分享给好友</button>
     </view>
-  </view>
+  </view> -->
+
 
   <!-- 计算按钮 -->
-  <view class="calculate-section" wx:if="{{!showResult}}">
+  <!-- <view class="calculate-section" wx:if="{{!showResult}}">
     <button class="calculate-btn" bindtap="calculateRecommendation" disabled="{{!weight}}">
       开始计算
     </button>
-  </view>
+  </view> -->
+
 </view> 

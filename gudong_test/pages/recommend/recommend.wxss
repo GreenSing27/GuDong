@@ -51,6 +51,12 @@ input {
 }
 
 /* 结果部分 */
+.advice {
+  font-size: 32rpx;
+  line-height: 60rpx;
+  color: #333;
+  white-space: pre-wrap; /* 保留换行 */
+}
 .result-section {
   margin-top: 40rpx;
 }
