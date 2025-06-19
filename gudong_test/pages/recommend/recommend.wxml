@@ -1,59 +1,109 @@
 <view class="container">
   <!-- 个人信息输入表单 -->
   <view class="form-section">
-    <view class="form-title">个人信息</view>
+    <view class="form-title">🌟 输入详细信息 AI 一下吧</view>
+
+    <!-- 性别 -->
     <view class="form-item">
-      <text class="label">体重(kg)</text>
-      <input type="digit" value="{{weight}}" bindinput="onWeightInput" placeholder="请输入体重"/>
+      <text class="label">🚻 性别</text>
+      <picker mode="selector" range="{{GenderLevels}}" value="{{GenderIndex}}" bindchange="onGender"
+              class="form-control picker">
+        <view class="picker-content">
+          {{GenderLevels[GenderIndex]}}
+        </view>
+      </picker>
     </view>
+
+    <!-- 年龄 -->
     <view class="form-item">
-      <text class="label">活动量</text>
-      <picker mode="selector" range="{{activityLevels}}" value="{{activityIndex}}" bindchange="onActivityChange">
-        <view class="picker">
+      <text class="label">👤 年龄</text>
+      <input class="form-control" type="number" bindinput="onAge" placeholder="请输入年龄"/>
+    </view>
+
+    <!-- 身高 -->
+    <view class="form-item">
+      <text class="label">📏 身高 (cm)</text>
+      <input class="form-control" type="digit" bindinput="onHeight" placeholder="请输入身高"/>
+    </view>
+
+    <!-- 体重 -->
+    <view class="form-item">
+      <text class="label">⚖️ 体重 (kg)</text>
+      <input class="form-control" type="digit" value="{{weight}}" bindinput="onWeightInput" placeholder="请输入体重"/>
+    </view>
+
+    <!-- 活动量 -->
+    <view class="form-item">
+      <text class="label">🏃‍♂️ 活动量</text>
+      <picker mode="selector" range="{{activityLevels}}" value="{{activityIndex}}" bindchange="onActivityChange"
+              class="form-control picker">
+        <view class="picker-content">
           {{activityLevels[activityIndex]}}
         </view>
       </picker>
     </view>
+
+    <!-- 饮食习惯 -->
     <view class="form-item">
-      <text class="label">其他备注</text>
-      <input type="idcard" value="{{descrip}}" bindinput="onDescrip" placeholder="请输入备注"/>
+      <text class="label">🍽️ 饮食习惯</text>
+      <input class="form-control" type="text" bindinput="onHabit" placeholder="请输入"/>
+    </view>
+
+    <!-- 是否有慢性病 -->
+    <view class="form-item">
+      <text class="label">🩺 慢性病</text>
+      <input class="form-control" type="text" bindinput="onDisease" placeholder="请输入"/>
+    </view>
+
+    <!-- 是否怀孕或哺乳 -->
+    <view wx:if="{{GenderLevels[GenderIndex] == '女'}}" class="form-item">
+      <text class="label">🤰 是否经期、怀孕或哺乳</text>
+      <picker mode="selector" range="{{PregnantLevels}}" value="{{PregnantIndex}}" bindchange="onPregnant"
+              class="form-control picker">
+        <view class="picker-content">
+          {{PregnantLevels[PregnantIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 睡眠质量 -->
+    <view class="form-item">
+      <text class="label">😴 睡眠情况</text>
+      <input class="form-control" type="text" bindinput="onSleep" placeholder="请输入"/>
+    </view>
+
+    <!-- 心理压力水平 -->
+    <view class="form-item">
+      <text class="label">🧘‍♂️ 心理压力水平</text>
+      <picker mode="selector" range="{{PhyLevels}}" value="{{PhyIndex}}" bindchange="onPhy"
+              class="form-control picker">
+        <view class="picker-content">
+          {{PhyLevels[PhyIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 其他备注 -->
+    <view class="form-item">
+      <text class="label">ℹ️ 其他备注（如天气，偏好等）</text>
+      <input class="form-control" type="text" bindinput="onDescrip" placeholder="备注"/>
+    </view>
+
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class="custom-btn" bindtap="getWaterAdvice">问问D老师</button>
+
+  <!-- 加载提示 -->
+  <view wx:if="{{loading}}" class="loading-tips">
+    <view class="loading-line">正在获取建议...</view>
+    <view class="loading-line">性别：{{gender}}，年龄：{{age}}，身高：{{height}}cm，体重：{{weight}}kg，活动水平：{{activityText}}，饮食习惯：{{habit}}，慢性病：{{disease}}，{{pregnant}}，睡眠情况{{sleep}}，心理压力水平{{phy}}，其他信息：{{descrip}}</view>
+  </view>
+
+  <!-- 建议结果展示 -->
+  <view wx:if="{{advice}}" class="advice-card">
+    <view class="advice-box">
+      <text class="advice">{{advice}}</text>
     </view>
   </view>
-  
-  <!-- 大模型推荐结果 -->
-  <button type="primary" bindtap="getWaterAdvice">获取饮水建议</button>
-  <view wx:if="{{loading}}">正在获取建议...</view>
-  <view wx:if="{{loading}}">体重{{weight}}kg，活动水平为{{activityText}}，其他信息：{{descrip}}</view>
-  <view wx:if="{{advice}}" class="advice">{{advice}}</view>
-
-  <!-- 计算结果 -->
-  <!-- <view class="result-section" wx:if="{{showResult}}">
-    <view class="result-card">
-      <view class="result-title">今日推荐饮水量</view>
-      <view class="water-amount">{{recommendedWater}}ml</view>
-      <view class="result-desc">根据您的体重和活动量计算得出</view>
-    </view>
-    <view class="schedule-card">
-      <view class="schedule-title">推荐饮水时间表</view>
-      <view class="schedule-list">
-        <view class="schedule-item" wx:for="{{scheduleList}}" wx:key="index">
-          <text class="time">{{item.time}}</text>
-          <text class="amount">{{item.amount}}ml</text>
-        </view>
-      </view>
-    </view>
-    <view class="action-buttons">
-      <button class="apply-btn" bindtap="applyToHome">应用到首页</button>
-      <button class="share-btn" bindtap="shareResult">分享给好友</button>
-    </view>
-  </view> -->
-
-
-  <!-- 计算按钮 -->
-  <!-- <view class="calculate-section" wx:if="{{!showResult}}">
-    <button class="calculate-btn" bindtap="calculateRecommendation" disabled="{{!weight}}">
-      开始计算
-    </button>
-  </view> -->
-
-</view> 
+</view>
