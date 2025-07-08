@@ -1,83 +1,100 @@
+.top-bg {
+  width: 100vw;
+  height: 180rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
 .container {
-  padding: 30rpx;
-  background-color: #f5f6fa;
-  min-height: 100vh;
-}
-
-/* 通用样式 */
-.section-title {
-  font-size: 36rpx;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 30rpx;
-}
-
-/* 饮品推荐部分 */
-.drink-section {
-  margin-bottom: 40rpx;
-}
-
-.drink-scroll {
-  white-space: nowrap;
-  margin: 0 -30rpx;
-  padding: 0 30rpx;
-}
-
-.drink-card {
-  display: inline-block;
-  width: 300rpx;
-  margin-right: 20rpx;
-  background: #fff;
-  border-radius: 20rpx;
-  overflow: hidden;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
-}
-
-.drink-image {
-  width: 100%;
-  height: 200rpx;
-}
-
-.drink-info {
   padding: 20rpx;
+  background: #f7f4eb;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  font-family: 'PingFang SC', 'HarmonyOS_Regular', 'Helvetica Neue', Arial, sans-serif;
+  overflow: auto;
 }
 
-.drink-name {
-  font-size: 28rpx;
-  color: #333;
+.section-title {
+  font-size: 40rpx;
   font-weight: bold;
-  display: block;
-  margin-bottom: 10rpx;
+  color: #020202;
+  margin: 40rpx 0 24rpx;
+  padding-left: 24rpx;
+  border-left: 10rpx solid #050505;
+  letter-spacing: 2rpx;
+  text-shadow: 2rpx 2rpx 8rpx #fff0f6;
 }
 
-.drink-desc {
-  font-size: 24rpx;
-  color: #666;
-  display: block;
-  white-space: normal;
+/* 饮品网格样式 */
+/* 饮品网格容器 */
+.drink-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 保持 4 列布局 */
+  gap: 20rpx;                          /* 适当间距 */
+  padding: 20rpx;                      /* 内边距 */
+  
+}
+
+/* 单个饮品项（简化版） */
+.drink-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* 内容居中 */
+  /* 移除背景、边框、阴影、动画等所有装饰 */
+}
+
+/* 饮品图标（无边框+圆形） */
+.drink-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;   /* 圆形 */
+  margin-bottom: 10rpx; /* 图片和文字的间距 */
+  /* 移除边框和阴影 */
+  border: 6rpx solid #000;
+  box-shadow: none;
+}
+
+/* 饮品名称（纯黑色文字） */
+.drink-name {
+  font-size: 12px;     /* 适当调小字号 */
+  font-family: "微软雅黑", "Heiti SC", "Microsoft YaHei", sans-serif;  /* ✅ 黑体字体 */
+ /* font-weight: bold;*/
+  color: #000;         /* 纯黑色 */
+  text-align: center;  /* 文字居中 */
+  /* 可选：单行显示 + 超出省略 */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  max-width: 100%;
 }
 
-/* 文章列表部分 */
-.article-list {
-  margin: 0 -30rpx;
+/* 文章网格样式 */
+.article-section {
+  margin-top: 40rpx;
 }
 
-.article-card {
-  background: #fff;
-  margin: 0 30rpx 20rpx;
-  border-radius: 20rpx;
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28rpx;
+  padding: 28rpx;
+}
+
+.article-grid-item {
+  background: linear-gradient(135deg, #ecf0dd 0%, #ffffff 100%);
+  border-radius: 16rpx;
   overflow: hidden;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  box-shadow: 1rpx solid #e0e0e0;
+  border: 2rpx solid #f3f0d1;
 }
 
 .article-image {
   width: 100%;
-  height: 300rpx;
+  height: 200rpx;
+  border-radius: 0 0 20rpx 20rpx;
 }
 
 .article-info {
@@ -85,33 +102,42 @@
 }
 
 .article-title {
-  font-size: 32rpx;
-  color: #333;
+  font-size: 30rpx;
   font-weight: bold;
-  display: block;
+  color: #000000;
   margin-bottom: 10rpx;
-}
-
-.article-desc {
-  font-size: 26rpx;
-  color: #666;
-  display: block;
-  margin-bottom: 20rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 1rpx 1rpx 6rpx #e0f7fa;
+}
+
+.article-desc {
+  font-size: 24rpx;
+  color: #666;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .article-meta {
+  margin-top: 12rpx;
   display: flex;
   justify-content: space-between;
-  font-size: 24rpx;
-  color: #999;
+  align-items: center;
 }
 
-/* 饮品详情弹窗 */
+.article-category {
+  font-size: 22rpx;
+  color: #9e9651;
+  background: rgba(255,107,129,0.12);
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+/* 弹窗样式 */
 .drink-detail-modal {
   position: fixed;
   top: 0;
@@ -127,7 +153,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
 }
 
 .modal-content {
@@ -135,101 +161,111 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
-  border-radius: 30rpx 30rpx 0 0;
+  background: #f7f4eb;
+  border-radius: 32rpx 32rpx 0 0;
   max-height: 80vh;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4rpx 18rpx #f4f5f444;
 }
 
 .modal-header {
-  padding: 30rpx;
+  padding: 28rpx;
+  border-bottom: 1rpx solid #b8860b;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1rpx solid #eee;
 }
 
 .modal-title {
-  font-size: 36rpx;
+  font-size: 45rpx;
+  font-family: "宋体";
   font-weight: bold;
-  color: #333;
+  color: #b8860b;
 }
 
 .modal-close {
-  font-size: 48rpx;
-  color: #999;
-  padding: 0 20rpx;
+  font-size: 44rpx;
+  color: #000000;
+  padding: 10rpx;
 }
 
 .modal-body {
-  flex: 1;
-  padding: 30rpx;
-}
-
-.detail-image {
-  width: 100%;
-  height: 400rpx;
-  border-radius: 20rpx;
-  margin-bottom: 30rpx;
+  max-height: 60vh;   /* ✅ 让 scroll-view 在弹窗中最多占60%的屏幕高度 */
+  overflow-y: scroll;
+  padding: 28rpx;
 }
 
 .detail-section {
-  margin-bottom: 30rpx;
+  margin-bottom: 36rpx;
 }
 
 .detail-title {
   font-size: 32rpx;
+  font-family: "宋体";
   font-weight: bold;
-  color: #333;
-  margin-bottom: 20rpx;
+  color: #b8860b;
+  margin-bottom: 18rpx;
 }
 
 .detail-text {
   font-size: 28rpx;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-.ingredient-list {
-  background: #f5f6fa;
-  border-radius: 10rpx;
-  padding: 20rpx;
+.ingredient-list, .step-list {
+  background: #fcebda;
+  border-radius: 14rpx;
+  padding: 18rpx;
 }
 
 .ingredient-item {
   display: flex;
   justify-content: space-between;
-  padding: 10rpx 0;
-  font-size: 28rpx;
-  color: #666;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid #b8860b;
 }
 
-.step-list {
-  counter-reset: step;
+.ingredient-item:last-child {
+  border-bottom: none;
+}
+.ingredient-name {
+  flex: 1;
+  text-align: left;
 }
 
+.ingredient-amount {
+  flex: 1;
+  text-align: right;
+  padding-right: 50rpx; /* ✅ 控制右侧距离 */
+}
 .step-item {
   display: flex;
-  margin-bottom: 20rpx;
-  font-size: 28rpx;
-  color: #666;
-  line-height: 1.6;
+  gap: 16rpx;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #b8860b;
+}
+
+.step-item:last-child {
+  border-bottom: none;
 }
 
 .step-number {
   width: 40rpx;
   height: 40rpx;
-  background: #4A90E2;
+  background: #cd853f;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20rpx;
-  flex-shrink: 0;
+  font-size: 24rpx;
 }
 
 .step-text {
   flex: 1;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
 } 

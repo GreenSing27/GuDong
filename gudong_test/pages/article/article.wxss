@@ -1,0 +1,88 @@
+.container {
+  padding: 40rpx;
+  background: #f7f4eb;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 文章标题与信息 */
+.article-header {
+  margin-bottom: 20rpx;
+}
+.article-title {
+  font-size: 40rpx;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  color: #222;
+  line-height: 1.4;
+  margin-bottom: 8rpx;
+}
+.article-meta {
+  margin-top: 25rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 正文 */
+.article-content {
+  padding: 20rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  margin-top: 20rpx;
+}
+.article-text {
+  font-size: 28rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* 推荐文章 */
+.section-title {
+  margin-top: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 20rpx;
+}
+
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28rpx;
+}
+.related-item {
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+.related-image {
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+}
+.related-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.related-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+.related-desc {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+}

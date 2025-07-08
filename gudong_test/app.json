@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/recommend/recommend",
     "pages/knowledge/knowledge",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",

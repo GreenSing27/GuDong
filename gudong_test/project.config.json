@@ -6,8 +6,8 @@
   },
   "setting": {
     "urlCheck": true,
-    "es6": true,
-    "enhance": true,
+    "es6": false,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -49,7 +49,7 @@
     "disableSWC": true
   },
   "compileType": "miniprogram",
-  "libVersion": "3.8.5",
+  "libVersion": "3.8.7",
   "appid": "wxec7f7fdefdaf2456",
   "projectname": "咕咚咕咚",
   "condition": {},

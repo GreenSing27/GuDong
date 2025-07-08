@@ -1,0 +1,29 @@
+<view class="container">
+  <!-- 文章头部信息 -->
+  <view class="article-header">
+    <text class="article-title">{{article.title}}</text>
+    <view class="article-meta">
+      <text class="article-category">{{article.category}}</text>
+      <text class="article-date">{{article.date}}</text>
+    </view>
+  </view>
+
+  <!-- 正文内容 -->
+  <view class="article-content">
+    <text class="article-text">{{article.content}}</text>
+  </view>
+
+  <!-- 相关推荐 -->
+  <view class="related-section" wx:if="{{relatedArticles.length > 0}}">
+    <view class="section-title">| 相关推荐</view>
+    <view class="related-list">
+      <view class="related-item" wx:for="{{relatedArticles}}" wx:key="_id" bindtap="navigateToArticle" data-id="{{item._id}}">
+        <image class="related-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="related-info">
+          <text class="related-title">{{item.title}}</text>
+          <text class="related-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
