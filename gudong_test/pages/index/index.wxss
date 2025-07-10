@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* index.wxss */
 page {
   height: 100vh;
   display: flex;
@@ -6,30 +6,19 @@ page {
 }
 .scrollarea {
   flex: 1;
-  overflow-y: hidden;
 }
-
 .container {
   padding: 20rpx;
   background-color: #f5f6fa;
   min-height: 100vh;
 }
 
-/* 用户信息和天气简报 */
-.user-info-section {
+.user-info-section, .water-progress-section, .quick-drink-section, .reminder-section {
   background: #fff;
   border-radius: 20rpx;
   padding: 30rpx;
   margin-bottom: 20rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
 }
 
 .avatar {
@@ -38,37 +27,17 @@ page {
   border-radius: 50%;
   margin-right: 20rpx;
 }
-
-.nickname {
-  font-size: 32rpx;
-  color: #333;
-}
+.nickname { font-size: 32rpx; }
 
 .weather-info {
   text-align: right;
 }
-
 .temperature {
   font-size: 36rpx;
-  color: #333;
   font-weight: bold;
-  display: block;
 }
-
 .weather-desc {
   font-size: 24rpx;
-  color: #666;
-}
-
-/* 饮水进度圆环 */
-.water-progress-section {
-  background: #fff;
-  border-radius: 20rpx;
-  padding: 40rpx;
-  margin-bottom: 20rpx;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
 }
 
 .progress-circle {
@@ -79,31 +48,18 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-
 .progress-text {
   text-align: center;
-  color: #fff;
+  color: white;
 }
-
 .current {
   font-size: 48rpx;
   font-weight: bold;
 }
-
 .target {
   font-size: 32rpx;
   opacity: 0.8;
-}
-
-/* 快捷喝水按钮组 */
-.quick-drink-section {
-  background: #fff;
-  border-radius: 20rpx;
-  padding: 30rpx;
-  margin-bottom: 20rpx;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
 }
 
 .button-group {
@@ -111,55 +67,24 @@ page {
   justify-content: space-between;
   margin-bottom: 20rpx;
 }
-
 .drink-btn {
   flex: 1;
   margin: 0 10rpx;
   background: #4A90E2;
-  color: #fff;
-  border-radius: 10rpx;
-  font-size: 28rpx;
+  color: white;
   padding: 20rpx 0;
+  border-radius: 10rpx;
 }
-
 .drink-btn.custom {
   background: #f0f0f0;
   color: #666;
 }
-
 .other-drink-btn {
   width: 100%;
   background: #f0f0f0;
   color: #666;
   border-radius: 10rpx;
-  font-size: 28rpx;
   padding: 20rpx 0;
-}
-
-/* 提醒设置入口 */
-.reminder-section {
-  background: #fff;
-  border-radius: 20rpx;
-  padding: 30rpx;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
-}
-
-.reminder-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20rpx;
-}
-
-.title {
-  font-size: 32rpx;
-  color: #333;
-  font-weight: bold;
-}
-
-.reminder-settings {
-  border-top: 1rpx solid #eee;
-  padding-top: 20rpx;
 }
 
 .picker {
@@ -167,3 +92,27 @@ page {
   font-size: 28rpx;
   color: #666;
 }
+.custom-times {
+  margin-top: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.time-item {
+  position: relative;
+  background-color: #e0f0ff;
+  color: #007aff;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.delete-icon {
+  color: red;
+  font-weight: bold;
+  margin-left: 10rpx;
+  cursor: pointer;
+}
+

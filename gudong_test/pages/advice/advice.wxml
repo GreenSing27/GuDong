@@ -1,0 +1,29 @@
+<!--pages/advice/advice.wxml-->
+<view class="feedback-container">
+ 
+  <text class="title">意见反馈</text>
+
+  <view class="input-group">
+    <textarea 
+      class="feedback-input" 
+      placeholder="请描述您的问题或建议..." 
+      bindinput="onInputFeedback" 
+      value="{{feedbackText}}" 
+      maxlength="500"
+    />
+  </view>
+
+  <view class="input-group">
+    <input 
+      class="contact-input" 
+      placeholder="请输入您的联系方式（可选）" 
+      bindinput="onInputContact" 
+      value="{{contactInfo}}"
+    />
+  </view>
+
+  <button class="submit-btn" bindtap="submitFeedback" loading="{{isSubmitting}}">提交反馈</button>
+  <text class="tip">我们会尽快处理您的反馈，感谢支持！</text>
+
+
+</view>

@@ -1,8 +1,6 @@
-<!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
+<!-- index.wxml -->
+<scroll-view class="scrollarea" scroll-y>
   <view class="container">
-    <!-- 用户信息和天气简报 -->
     <view class="user-info-section">
       <view class="user-info">
         <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
@@ -14,7 +12,6 @@
       </view>
     </view>
 
-    <!-- 饮水进度圆环 -->
     <view class="water-progress-section">
       <view class="progress-circle">
         <view class="progress-text">
@@ -24,7 +21,6 @@
       </view>
     </view>
 
-    <!-- 快捷喝水按钮组 -->
     <view class="quick-drink-section">
       <view class="button-group">
         <button class="drink-btn" bindtap="addWater" data-amount="250">+250ml</button>
@@ -34,24 +30,37 @@
       <button class="other-drink-btn" bindtap="showOtherDrinks">添加其他饮品</button>
     </view>
 
-    <!-- 提醒设置入口 -->
     <view class="reminder-section">
       <view class="reminder-header">
         <text class="title">定时提醒</text>
         <switch checked="{{reminderEnabled}}" bindchange="toggleReminder" color="#4A90E2"/>
       </view>
+
       <view class="reminder-settings" wx:if="{{reminderEnabled}}">
         <picker mode="selector" range="{{intervalOptions}}" value="{{intervalIndex}}" bindchange="changeInterval">
-          <view class="picker">
-            提醒间隔：{{intervalOptions[intervalIndex]}}
-          </view>
+          <view class="picker">提醒间隔：{{intervalOptions[intervalIndex]}}</view>
         </picker>
         <picker mode="selector" range="{{reminderTypes}}" value="{{reminderTypeIndex}}" bindchange="changeReminderType">
-          <view class="picker">
-            提醒方式：{{reminderTypes[reminderTypeIndex]}}
+          <view class="picker">提醒方式：{{reminderTypes[reminderTypeIndex]}}</view>
+        </picker>
+
+        <!-- 新增：多个自定义提醒时间 -->
+        <view class="custom-times">
+          <text>提醒时间：</text>
+          <block wx:for="{{reminderTimes}}" wx:key="index">
+            <view class="time-item">
+              {{item}}
+              <text class="delete-icon" bindtap="removeReminderTime" data-time="{{item}}">×</text>
           </view>
+        </block>
+      </view>
+
+        <picker mode="time" bindchange="saveReminderTime">
+          <view class="picker">添加新提醒时间</view>
         </picker>
       </view>
     </view>
+
+    <button bindtap="subscribeReminder">订阅提醒通知</button>
   </view>
 </scroll-view>

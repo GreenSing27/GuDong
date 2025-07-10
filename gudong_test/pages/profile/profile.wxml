@@ -37,7 +37,8 @@
       <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/reminder">
         <text class="item-label">提醒设置</text>
         <view class="item-right">
-          <switch checked="{{reminderEnabled}}" bindchange="toggleReminder" color="#4A90E2"/>
+          <!-- <switch checked="{{reminderEnabled}}" bindchange="toggleReminder" color="#4A90E2"/> -->
+          <text class="item-value">共 {{reminderTimes ? reminderTimes.length : 0}} 个</text>
         </view>
       </view>
     </view>
@@ -58,13 +59,13 @@
     </view>
 
     <view class="settings-group">
-      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/about">
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/aboutus/aboutus">
         <text class="item-label">关于我们</text>
         <view class="item-right">
           <text class="arrow">></text>
         </view>
       </view>
-      <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/feedback">
+      <view class="settings-item" bindtap="navigateTo" data-url="/pages/advice/advice">
         <text class="item-label">意见反馈</text>
         <view class="item-right">
           <text class="arrow">></text>

@@ -1,0 +1,73 @@
+.about-container {
+  padding: 30rpx;
+  background-color: #f7f4eb;
+}
+
+.card {
+  background-color: #f7f4eb;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 20rpx;
+  border-radius: 50%;
+}
+
+.app-name {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.version {
+  color: #888;
+  font-size: 28rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+  font-weight: bold;
+  color: #020202;
+  padding-left: 10rpx;
+  border-left: 10rpx solid #050505;
+  letter-spacing: 2rpx;
+  text-shadow: 2rpx 2rpx 8rpx #fff0f6;
+}
+
+.section-content {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 40rpx;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+}
+
+.policy-link {
+  display: inline-block;
+  margin-top: 15rpx;
+  color: #4A90E2;
+  font-size: 28rpx;
+}

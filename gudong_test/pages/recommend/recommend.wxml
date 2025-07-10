@@ -1,7 +1,10 @@
 <view class="container">
   <!-- 个人信息输入表单 -->
+  <view class="parent">
+   <view class="form-title">输入详细信息 AI 一下吧</view>  
+  </view>  
   <view class="form-section">
-    <view class="form-title">🌟 输入详细信息 AI 一下吧</view>
+    <!-- 🌟  -->
 
     <!-- 性别 -->
     <view class="form-item">

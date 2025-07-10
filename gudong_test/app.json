@@ -5,7 +5,9 @@
     "pages/recommend/recommend",
     "pages/knowledge/knowledge",
     "pages/profile/profile",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/aboutus/aboutus",
+    "pages/advice/advice"
   ],
   "window": {
     "backgroundTextStyle": "light",

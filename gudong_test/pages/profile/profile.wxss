@@ -1,12 +1,14 @@
 .container {
   padding: 30rpx;
-  background-color: #f5f6fa;
+  background-color: #f7f4eb;
   min-height: 100vh;
+  width: 100%;
 }
 
 /* 用户信息卡片 */
 .user-card {
-  background: #fff;
+  background: #f7f4eb;
+  width: 100%;
   border-radius: 20rpx;
   padding: 30rpx;
   margin-bottom: 30rpx;
@@ -24,6 +26,11 @@
   height: 120rpx;
   border-radius: 50%;
   margin-right: 30rpx;
+  border-radius: 50%;   /* 圆形 */
+  margin-bottom: 10rpx; /* 图片和文字的间距 */
+  /* 移除边框和阴影 */
+  border: 6rpx solid #000;
+  box-shadow: none;
 }
 
 .user-detail {
@@ -57,7 +64,8 @@
 
 .stat-value {
   font-size: 36rpx;
-  color: #4A90E2;
+  color: #000;
+  /* #4A90E2; */
   font-weight: bold;
   display: block;
   margin-bottom: 10rpx;
@@ -71,10 +79,12 @@
 /* 设置列表 */
 .settings-list {
   margin-bottom: 30rpx;
+  width: 100%;
 }
 
 .settings-group {
-  background: #fff;
+  background: #f7f4eb;
+  width: 100%;
   border-radius: 20rpx;
   margin-bottom: 20rpx;
   box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
@@ -104,13 +114,13 @@
 
 .item-value {
   font-size: 28rpx;
-  color: #999;
+  color: #666;
   margin-right: 10rpx;
 }
 
 .arrow {
   font-size: 28rpx;
-  color: #999;
+  color: #666;
 }
 
 /* 退出登录按钮 */
@@ -120,11 +130,17 @@
 
 .logout-btn {
   width: 100%;
-  height: 88rpx;
-  background: #fff;
-  color: #ff4d4f;
+  /* height: 88rpx; */
+  background: #f7f4eb;
+  color: #000000;
+  /* #ff4d4f */
   border-radius: 44rpx;
   font-size: 32rpx;
-  line-height: 88rpx;
+  line-height: 60rpx;
   border: none;
+  margin-right: 30rpx;
+  margin-bottom: 10rpx; /* 图片和文字的间距 */
+  /* 移除边框和阴影 */
+  border: 6rpx solid #000;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 } 

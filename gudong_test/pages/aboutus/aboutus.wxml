@@ -1,0 +1,39 @@
+<view class="about-container">
+  <view class="card app-card">
+    <image class="logo" src="/assets/images/app-logo.png" mode="aspectFit"/>
+    <text class="app-name">饮水小助手</text>
+    <text class="version">版本号：v1.0.0</text>
+  </view>
+
+  <view class="card section">
+    <text class="section-title">🥛应用简介</text>
+    <text class="section-content">咕咚咕咚饮水小助手是一款帮助您记录每日饮水量、设定目标并提醒喝水的健康管理类小程序。我们致力于让用户更健康地生活。
+    </text>
+  </view>
+
+  <view class="card section">
+    <text class="section-title">🚀开发团队</text>
+    <text class="section-content">@Camellia@GreenSing@Lindaaaa</text>
+  </view>
+
+  <view class="card section">
+    <text class="section-title">📨联系方式</text>
+    <view class="contact-item">
+      <text class="section-content">gudong_support@163.com</text>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="section-title">🛠️待开发计划</text>
+    <view class="contact-item">
+      <text class="section-content">· 饮水地图更新</text>
+    </view>
+    <view class="contact-item">
+      <text class="section-content">· 增加记录功能</text>
+    </view>
+    <view class="contact-item">
+      <text class="section-content">· 丰富社交形式</text>
+    </view>
+  </view>
+
+</view>

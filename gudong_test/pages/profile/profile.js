@@ -6,7 +6,8 @@ Page({
     totalWater: 0,
     achievementCount: 0,
     waterGoal: 2000,
-    reminderEnabled: false
+    reminderEnabled: false,
+    reminderTimes:[]
   },
 
   onLoad() {
@@ -36,7 +37,8 @@ Page({
           nickName: userData.nickName,
           avatarUrl: userData.avatarUrl
         },
-        reminderEnabled: userData.reminderEnabled || false
+        reminderEnabled: userData.reminderEnabled || false,
+        reminderTimes: userData.reminderTimes || []
       });
 
       this.loadStats();
