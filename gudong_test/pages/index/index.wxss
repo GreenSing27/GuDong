@@ -21,13 +21,46 @@ page {
   box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
 }
 
-.avatar {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  margin-right: 20rpx;
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
-.nickname { font-size: 32rpx; }
+
+
+
+/* 添加水目标设置样式 */
+.settings-item .item-value {
+  font-size: 28rpx;
+  color: #4A90E2; /* 设置为蓝色，突出显示 */
+  font-weight: bold;
+  margin-right: 15rpx;
+}
+
+/* 优化头像样式 */
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+  border: 4rpx solid #fff; /* 添加白色边框 */
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+/* 优化昵称样式 */
+.nickname {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10rpx;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .weather-info {
   text-align: right;

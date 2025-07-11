@@ -18,10 +18,30 @@ Page({
       .limit(12)
       .get()
       .then(res => {
-        
-        this.setData({
-          drinkList: res.data
+        const rawDrinks = res.data
+        const imageFileIDs = rawDrinks.map(item => item.image)
+  
+        wx.cloud.getTempFileURL({
+          fileList: imageFileIDs,
+          success: tempRes => {
+            const drinkListWithURL = rawDrinks.map((item, index) => {
+              return {
+                ...item,
+                image: tempRes.fileList[index].tempFileURL
+              }
+            })
+  
+            this.setData({
+              drinkList: drinkListWithURL
+            })
+          },
+          fail: err => {
+            console.error('获取饮品图片失败：', err)
+          }
         })
+      })
+      .catch(err => {
+        console.error('获取饮品列表失败：', err)
       })
   },
 

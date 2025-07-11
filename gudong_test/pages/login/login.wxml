@@ -8,6 +8,20 @@
       <text class="subtitle">请先登录以体验完整功能</text>
     </view>
 
+    <!-- <view class="user-card">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-info">
+      <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{avatarUrl}}"></image>
+      </button> 
+      <mp-form>
+        <mp-cells>
+            <input type="nickname" class="weui-input" placeholder="请输入昵称" bindinput="onNickNameInput"/>
+        </mp-cells>
+      </mp-form>
+      </view>
+    </view> -->
+
     <view class="login-btn-container">
       <button 
         wx:if="{{canIUseGetUserProfile}}"
@@ -35,9 +49,19 @@
   <!-- 已登录状态 -->
   <block wx:else>
     <view class="user-card">
-      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <!-- <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image> -->
       <view class="user-info">
-        <text class="nickname">{{userInfo.nickName}}</text>
+        <!-- <view data-weui-theme="{{theme}}"> -->
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{avatarUrl}}"></image>
+        </button> 
+        <mp-form>
+          <mp-cells>
+            <text class="nickname">{{nickName}}</text>
+            <input type="nickname" class="weui-input" placeholder="请输入昵称" bindinput="onNickNameInput"/>
+          </mp-cells>
+        </mp-form>
+        <!-- </view> -->
         <text class="welcome">欢迎回来！</text>
       </view>
     </view>
@@ -48,3 +72,4 @@
     </view>
   </block>
 </view>
+

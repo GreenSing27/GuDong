@@ -1,3 +1,4 @@
+<!-- profile.wxml -->
 <view class="container">
   <!-- 用户信息卡片 -->
   <view class="user-card">
@@ -5,7 +6,7 @@
       <image class="avatar" src="{{userInfo.avatarUrl || '/assets/images/default-avatar.png'}}" bindtap="changeAvatar"/>
       <view class="user-detail">
         <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
-        <text class="user-id">ID: {{userId}}</text>
+        <text class="user-id">ID: {{openid.substring(0, 8)}}</text> <!-- 显示部分openid -->
       </view>
     </view>
     <view class="stats-row">
@@ -37,7 +38,6 @@
       <view class="settings-item" bindtap="navigateTo" data-url="/pages/settings/reminder">
         <text class="item-label">提醒设置</text>
         <view class="item-right">
-          <!-- <switch checked="{{reminderEnabled}}" bindchange="toggleReminder" color="#4A90E2"/> -->
           <text class="item-value">共 {{reminderTimes ? reminderTimes.length : 0}} 个</text>
         </view>
       </view>

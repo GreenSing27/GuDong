@@ -1,4 +1,18 @@
 <!-- index.wxml -->
+<!-- <view data-weui-theme="{{theme}}">
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button> 
+  <mp-form>
+    <mp-cells>
+      <mp-cell title="昵称">
+        <input type="nickname" class="weui-input" placeholder="请输入昵称" bindinput="onNickNameInput"/>
+      </mp-cell>
+    </mp-cells>
+  </mp-form>
+</view> -->
+
+
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
     <view class="user-info-section">
@@ -16,7 +30,7 @@
       <view class="progress-circle">
         <view class="progress-text">
           <text class="current">{{todayWater}}ml</text>
-          <text class="target">/ {{waterGoal}}ml</text>
+          <text class="target">/ {{waterGoal}}ml</text> <!-- 使用动态水目标 -->
         </view>
       </view>
     </view>

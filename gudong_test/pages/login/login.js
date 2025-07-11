@@ -1,3 +1,7 @@
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+
+const app = getApp()
+const db = wx.cloud.database();
 Page({
   data: {
     userInfo: null,
@@ -7,11 +11,105 @@ Page({
     loading: false
   },
 
-  onLoad() {
+  async onLoad() {
     if (wx.getUserProfile) {
       this.setData({ canIUseGetUserProfile: true });
     }
     this.checkLoginStatus();
+    
+    await this.getUserInfoFromCloud();
+  },
+
+  onChooseAvatar(e) {
+    const { avatarUrl } = e.detail 
+    this.setData({
+      avatarUrl,
+    });
+    this.saveUserAvatar(avatarUrl);
+  },
+   
+  // 保存用户头像到数据库
+  async saveUserAvatar(avatarUrl) {
+    const { result } = await wx.cloud.callFunction({ name: 'getOpenId' });
+    const openid = result.openid;
+    if (!openid) return;
+    try {
+      await db.collection('users').where({ _openid: openid }).update({
+        data: {
+          avatarUrl: avatarUrl,
+          updateTime: db.serverDate()
+        }
+      });
+      // 更新全局用户信息
+      if (app.globalData.userInfo) {
+        app.globalData.userInfo.avatarUrl = avatarUrl;
+      }
+      // 更新页面数据
+      this.setData({
+        'userInfo.avatarUrl': avatarUrl
+      });
+    } catch (err) {
+      console.error('保存头像失败:', err);
+    }
+  },
+  
+  // 昵称输入
+  onNickNameInput(e) {
+    const nickName = e.detail.value;
+    this.setData({
+      nickName,
+    });
+    this.saveUserNickName(nickName);
+  },
+  
+  // 保存用户昵称到数据库
+  async saveUserNickName(nickName) {
+    const { result } = await wx.cloud.callFunction({ name: 'getOpenId' });
+    const openid = result.openid;
+    if (!openid) return;
+    try {
+      await db.collection('users').where({ _openid: openid }).update({
+        data: {
+          nickName: nickName,
+          updateTime: db.serverDate()
+        }
+      });
+      // 更新全局用户信息
+      if (app.globalData.userInfo) {
+        app.globalData.userInfo.nickName = nickName;
+      }
+      // 更新页面数据
+      this.setData({
+        'userInfo.nickName': nickName
+      });
+    } catch (err) {
+      console.error('保存昵称失败:', err);
+    }
+  },
+
+  async getUserInfoFromCloud() {
+    try {
+      const { result } = await wx.cloud.callFunction({ name: 'getOpenId' });
+      const openid = result.openid;
+      if (!openid) return;
+      const res = await db.collection('users').where({ _openid: openid }).limit(1).get();
+      if (res.data.length > 0) {
+        const userData = res.data[0];
+        const userInfo = {
+          nickName: userData.nickName || '微信用户',
+          avatarUrl: userData.avatarUrl || defaultAvatarUrl
+        };
+        this.setData({
+          userInfo: userInfo,
+          avatarUrl: userData.avatarUrl || defaultAvatarUrl
+        });
+        
+        // 更新全局用户信息
+        app.globalData.userInfo = userInfo;
+      }
+    } catch (err) {
+      console.error('获取用户信息失败:', err);
+    }
   },
 
   // 检查本地登录状态
@@ -41,7 +139,6 @@ Page({
         icon: 'none'
       });
     }
-
     wx.getUserProfile({
       desc: '用于完善会员资料',
       lang: 'zh_CN',
@@ -93,7 +190,7 @@ Page({
         throw new Error('登录失败，未获取用户信息')
       }
 
-      // 存储 openid 和用户信息（可选）
+      // 存储 openid 和用户信息
       wx.setStorageSync('openid', openid)
       wx.setStorageSync('userInfo', userData)
       wx.setStorageSync('loginExpire', Date.now() + 7 * 24 * 60 * 60 * 1000)
@@ -104,9 +201,6 @@ Page({
         hasUserInfo: true,
         loading: false
       })
-
-      // 跳转首页
-      this.navigateToHome()
 
     } catch (err) {
       this.handleLoginError(err);
